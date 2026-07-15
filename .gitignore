@@ -1,0 +1,11 @@
+.env
+.env.local
+.env.development
+.env.production
+.env.staging
+__pycache__/
+*.pyc
+database.db
+exports/
+.DS_Store
+.streamlit/secrets.toml

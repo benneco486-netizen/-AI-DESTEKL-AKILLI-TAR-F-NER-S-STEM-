@@ -1,0 +1,158 @@
+/* Custom style for AI Tarif Asistanı UI */
+
+/* Custom fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Outfit', sans-serif;
+    color: #2D3436;
+}
+
+/* Gradient Header styling */
+.gradient-header {
+    background: linear-gradient(135deg, #FF5722, #FF7043);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    font-size: 2.6rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+/* Description text styling */
+.subtitle-text {
+    font-weight: 400;
+    color: #576574;
+    font-size: 1.15rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+/* Warm Appetizing Card container */
+.glass-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(255, 87, 34, 0.15);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(255, 87, 34, 0.05);
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 20px;
+    color: #2D3436 !important;
+}
+
+.glass-card:hover {
+    box-shadow: 0 12px 35px rgba(255, 87, 34, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Info card styling */
+.info-card {
+    background: #FFFDFB;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(255, 87, 34, 0.04);
+    border-left: 5px solid #FF5722;
+    transition: transform 0.2s;
+    color: #2D3436 !important;
+}
+
+.info-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Dark Mode adaptation */
+@media (prefers-color-scheme: dark) {
+    .glass-card {
+        background: #252220;
+        border: 1px solid rgba(255, 87, 34, 0.2);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        color: #FCEEE5 !important;
+    }
+    .info-card {
+        background: #2D2825;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        color: #FCEEE5 !important;
+    }
+    .subtitle-text {
+        color: #C2B7B0;
+    }
+}
+
+/* Custom Badges */
+.custom-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 30px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    background-color: #E8F5E9;
+    color: #2E7D32;
+    border: 1px solid #C8E6C9;
+    line-height: 1.2;
+}
+
+.custom-badge-danger {
+    background-color: #FFEBEE;
+    color: #C62828;
+    border: 1px solid #FFCDD2;
+}
+
+.custom-badge-warning {
+    background-color: #FFF3E0;
+    color: #E65100;
+    border: 1px solid #FFE0B2;
+}
+
+.custom-badge-primary {
+    background-color: #E3F2FD;
+    color: #1565C0;
+    border: 1px solid #BBDEFB;
+}
+
+/* Bullet list step styling with high contrast */
+.step-container {
+    background: #FFF8F5;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    border-left: 4px solid #FF5722;
+    color: #2D3436 !important;
+    line-height: 1.6;
+}
+
+/* Presentation recommendation box with high contrast */
+.presentation-box {
+    background-color: #F1F8E9;
+    border-left: 6px solid #7CB342;
+    padding: 16px;
+    border-radius: 8px;
+    color: #33691E !important;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+/* Custom Streamlit sidebar headers */
+.sidebar-section {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 87, 34, 0.2);
+    padding-bottom: 5px;
+    color: #FF5722;
+}
+
+/* Sidebar API statuses */
+.api-ok {
+    color: #2E7D32;
+    font-weight: 600;
+}
+.api-err {
+    color: #C62828;
+    font-weight: 600;
+}
