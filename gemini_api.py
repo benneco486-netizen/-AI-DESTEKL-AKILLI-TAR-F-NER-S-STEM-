@@ -9,7 +9,7 @@ from typing import Dict, Any, List, Optional
 import google.generativeai as genai
 from config import DEFAULT_MODEL_GEMINI
 from prompt import get_system_prompt, get_user_prompt
-from utils import logger
+from utils import logger, get_api_key
 
 
 def generate_recipe_gemini(
@@ -28,9 +28,9 @@ def generate_recipe_gemini(
     Returns:
         Optional[Dict[str, Any]]: Parsed recipe JSON, or None if failed.
     """
-    api_key = os.getenv("GOOGLE_API_KEY")
+    api_key = get_api_key("GOOGLE_API_KEY")
     if not api_key:
-        logger.error("GOOGLE_API_KEY is not defined in the environment variables.")
+        logger.error("GOOGLE_API_KEY could not be retrieved from environment or Streamlit secrets.")
         return None
 
     try:

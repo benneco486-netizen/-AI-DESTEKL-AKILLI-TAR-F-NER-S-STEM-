@@ -9,7 +9,7 @@ from typing import Dict, Any, List, Optional
 from groq import Groq
 from config import DEFAULT_MODEL_GROQ
 from prompt import get_system_prompt, get_user_prompt
-from utils import logger
+from utils import logger, get_api_key
 
 
 def generate_recipe_groq(
@@ -28,9 +28,9 @@ def generate_recipe_groq(
     Returns:
         Optional[Dict[str, Any]]: Parsed recipe JSON, or None if failed.
     """
-    api_key = os.getenv("GROQ_API_KEY")
+    api_key = get_api_key("GROQ_API_KEY")
     if not api_key:
-        logger.error("GROQ_API_KEY is not defined in the environment variables.")
+        logger.error("GROQ_API_KEY could not be retrieved from environment or Streamlit secrets.")
         return None
 
     try:

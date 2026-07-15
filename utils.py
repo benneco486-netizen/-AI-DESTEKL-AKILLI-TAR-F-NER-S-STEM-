@@ -24,19 +24,39 @@ logging.basicConfig(
 logger: logging.Logger = logging.getLogger("AI_Tarif_Asistani")
 
 
+def get_api_key(name: str) -> Optional[str]:
+    """
+    Retrieves the API key from Streamlit secrets (Streamlit Cloud) or environment variables (Local).
+
+    Args:
+        name (str): Key name, e.g. "GOOGLE_API_KEY" or "GROQ_API_KEY".
+
+    Returns:
+        Optional[str]: API key value, or None.
+    """
+    # 1. Try Streamlit Secrets (Streamlit Cloud)
+    try:
+        if name in st.secrets:
+            return st.secrets[name]
+    except Exception:
+        pass
+
+    # 2. Fallback to Environment Variables (Local)
+    return os.getenv(name)
+
+
 def get_api_status() -> Dict[str, bool]:
     """
-    Checks the status of Gemini and Groq API keys in the environment.
+    Checks the status of Gemini and Groq API keys.
 
     Returns:
         Dict[str, bool]: API name and availability status.
     """
-    gemini_key: Optional[str] = os.getenv("GOOGLE_API_KEY")
-    groq_key: Optional[str] = os.getenv("GROQ_API_KEY")
+    gemini_key = get_api_key("GOOGLE_API_KEY")
+    groq_key = get_api_key("GROQ_API_KEY")
 
-    # Simple validation (non-empty string check)
-    has_gemini: bool = bool(gemini_key and len(gemini_key.strip()) > 0)
-    has_groq: bool = bool(groq_key and len(groq_key.strip()) > 0)
+    has_gemini = bool(gemini_key and len(gemini_key.strip()) > 0)
+    has_groq = bool(groq_key and len(groq_key.strip()) > 0)
 
     return {
         "Gemini": has_gemini,
